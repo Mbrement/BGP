@@ -7,10 +7,13 @@ while read -r line; do
         continue
     fi
     if [[ "$line" == *"host"* ]]; then
-        docker exec -d $line ./host/host.sh "$version"
+	docker cp ./host/host.sh $line:/tmp/script.sh
     elif [[ "$line" == *"routeur"* ]]; then
-        docker exec -d $line ./routeur/static_routeur.sh "$version"
+        docker cp ./routeur/static_routeur.sh $line:/tmp/script.sh
     else
         echo "Unknown container type for: $line"
+	break
     fi
+    sleep 1
+    docker exec -d $line ./tmp/script.sh "$version"
 done
