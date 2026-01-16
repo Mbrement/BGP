@@ -7,7 +7,7 @@ host(){
         return 1
     fi
     echo "Configuring host with ID: $id"
-    ip addr add 30.1.1.$id dev eth1
+    ip addr add 30.1.1.$id/24 dev eth1
 }
 
 host $1
