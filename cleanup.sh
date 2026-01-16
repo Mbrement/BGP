@@ -52,8 +52,8 @@ clean_docker() {
 clean_GNS3() {
     echo "🗑️  Cleaning up GNS3..."
     SUDO=$(get_sudo)
-    $SUDO pipx uninstall gns3-server
-    $SUDO pipx uninstall gns3-gui
+    pipx uninstall gns3-server
+    pipx uninstall gns3-gui
     echo "Removing GNS3 configuration and project directories..."
     $SUDO apt purge python3-pip pipx python3-pyqt5 python3-pyqt5.qtwebsockets python3-pyqt5.qtsvg qemu-kvm qemu-utils libvirt-clients libvirt-daemon-system virtinst gnupg2 -y
     $SUDO apt autoremove -y
@@ -65,7 +65,7 @@ clean_GNS3() {
     echo "✨ GNS3 cleanup complete!"
 }
 
-# clean_docker
-clean_GNS3
+clean_docker
+# clean_GNS3
 
 echo "✅ Environment cleaned up!"

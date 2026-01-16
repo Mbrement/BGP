@@ -1,5 +1,5 @@
 #!/bin/bash
-docker ps --format '{{.Names}}'  | 
+docker ps --format '{{.Names}}'  gns| 
 while read -r line; do
     version=$(echo "$line" | sed -E 's/.*mrozniec-([0-9]).*/\1/')
     if [ -z "$version" ]; then
