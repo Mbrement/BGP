@@ -14,6 +14,6 @@ while read -r line; do
         echo "Unknown container type for: $line"
 	break
     fi
-    sleep 1
-    docker exec -d $line ./tmp/script.sh "$version"
+    echo "docker exec -d $line /tmp/script.sh $version"
+    docker exec -d $line /tmp/script.sh "$version"
 done
