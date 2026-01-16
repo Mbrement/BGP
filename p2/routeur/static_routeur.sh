@@ -1,4 +1,4 @@
-#/bin/sh
+#!/bin/bash
 routeur(){
     id=$1
     if [ -z "$id" ]; then
