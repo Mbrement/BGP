@@ -85,7 +85,7 @@ install_docker() {
 	local GPG_URL="https://download.docker.com/linux/$ID/gpg"
 
 	$SUDO curl -fsSL "$GPG_URL" -o /etc/apt/keyrings/docker.asc
-	$SUDO chmod a+r /etcr -f/apt/keyrings/docker.asc
+	$SUDO chmod a+r /etc/apt/keyrings/docker.asc
 
 	$SUDO tee /etc/apt/sources.list.d/docker.sources <<EOF
 Types: deb
@@ -112,8 +112,7 @@ install_GNS3() {
     echo "📦 Installing GNS3..."
 
     SUDO=$(get_sudo)
-
-    $SUDO apt install python3 python3-pip pipx python3-pyqt5 python3-pyqt5.qtwebsockets python3-pyqt5.qtsvg qemu-kvm qemu-utils libvirt-clients libvirt-daemon-system virtinst gnupg2 -y
+	$SUDO apt install python3 python3-pip pipx python3-pyqt5 python3-pyqt5.qtwebsockets python3-pyqt5.qtsvg qemu-kvm qemu-utils libvirt-clients libvirt-daemon-system virtinst gnupg2  busybox-static -y
     pipx install gns3-server
     pipx install gns3-gui
     pipx inject gns3-gui gns3-server PyQt5
