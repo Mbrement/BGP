@@ -9,11 +9,12 @@ while read -r line; do
     if [[ "$line" == *"host"* ]]; then
 	docker cp ./host/host.sh $line:/tmp/script.sh
     elif [[ "$line" == *"routeur"* ]]; then
-	if [[ "$1" == "dynamic" ]]; then
-	    docker cp ./routeur/dynamic_routeur.sh $line:/tmp/script.sh
-	else
-            docker cp ./routeur/static_routeur.sh $line:/tmp/script.sh
-	fi
+	# if [[ "$1" == "dynamic" ]]; then
+	#     docker cp ./routeur/dynamic_routeur.sh $line:/tmp/script.sh
+	# else
+    #         docker cp ./routeur/static_routeur.sh $line:/tmp/script.sh
+	# fi
+		echo "tmp"
     else
         echo "Unknown container type for: $line"
 	break
