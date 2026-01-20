@@ -14,6 +14,8 @@ routeur(){
 		interface eth2
 		 ip address 10.1.1.9/30
 		 exit
+		 routeur bgp 1
+!		  neighbor 
 		
 	exit
 
@@ -24,3 +26,7 @@ EOF
 }
 
 routeur $1
+
+
+# bgp cluster-id A.B.C.D
+# bgp no-rib	

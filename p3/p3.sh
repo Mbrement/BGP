@@ -1,5 +1,5 @@
 #!/bin/bash
-docker ps --format '{{.Names}}'  gns| 
+docker ps --format '{{.Names}}' | 
 while read -r line; do
     version=$(echo "$line" | sed -E 's/.*mrozniec-([0-9]).*/\1/')
     if [ -z "$version" ]; then
@@ -14,7 +14,7 @@ while read -r line; do
 	# else
     #         docker cp ./routeur/static_routeur.sh $line:/tmp/script.sh
 	# fi
-		echo "tmp"
+		echo "tmp, will be uncommented later	"
     else
         echo "Unknown container type for: $line"
 	break
