@@ -14,12 +14,17 @@ routeur(){
 		interface eth2
 		 ip address 10.1.1.9/30
 		 exit
-		interface lo
+		! loopback for iBGP sessions, 1.1.1.1 for sandbox purposes
+		interface lo0
 		 ip address 1.1.1.1/32
 		 exit
 		routeur bgp 1
-!		  neighbor 
-		
+			neighbor DYNAMIC remote-as 1
+			neighbor DYNAMIC update-source lo0
+!		  neighbor 10.1.1.1/30 remote-as 1
+!		  neighbor 10.1.1.5/30 remote-as 2
+!		  neighbor 10.1.1.5/30 remote-as 3 
+! neighbor DYNAMIC update-source		
 	exit
 
 exit
