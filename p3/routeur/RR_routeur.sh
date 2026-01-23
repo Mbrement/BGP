@@ -3,6 +3,7 @@ routeur(){
 	echo "this is RR routeur, it has a fix configuration"
 	vtysh << EOF
 	configure terminal
+
 		! Turn off IPv6 forwarding <-- comment
 		no ipv6 forwarding
 		interface eth0
@@ -19,13 +20,14 @@ routeur(){
 		 ip address 1.1.1.1/32
 		 exit
 		routeur bgp 1
-			neighbor DYNAMIC remote-as 1
-			neighbor DYNAMIC update-source lo0
+		 bgp log-neighbor-changes
+			neighbor BADASS remote-as 1
+			neighbor BADASS update-source lo0
 !		  neighbor 10.1.1.1/30 remote-as 1
 !		  neighbor 10.1.1.5/30 remote-as 2
 !		  neighbor 10.1.1.5/30 remote-as 3 
-! neighbor DYNAMIC update-source		
-	exit
+! neighbor BADASS update-source		
+		exit
 
 exit
 
