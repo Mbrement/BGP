@@ -24,17 +24,18 @@ routeur(){
 		 ip address 1.1.1.1/32
 		 ip ospf area 0
 		 exit
-		routeur bgp 1
+		router bgp 1
 		 bgp log-neighbor-changes
 			neighbor BADASS remote-as 1
 			neighbor BADASS update-source lo0
  			 bgp listen range 1.1.1.0/24 peer-group BADASS
 			 address-family l2vpn evpn
-			  neighbor DYNAMIC activate
-			  neighbor DYNAMIC route-reflector-client
+			  neighbor BADASS activate
+			  neighbor BADASS route-reflector-client
 			  exit-address-family
 		exit
-	routeur ospf	
+	router ospf	
+	 exit
 exit
 
 
