@@ -4,9 +4,10 @@ routeur(){
 	echo "this is RR routeur, it has a fix configuration"
 	vtysh << EOF
 	configure terminal
+	
 	    ip ospf log-adjacency-changes 
 		! Turn off IPv6 forwarding, is commented for now
-		! no ipv6 forwarding
+		no ipv6 forwarding
 		interface eth0
 		 ip address 10.1.1.1/30
 		 ip ospf area 0
@@ -35,6 +36,7 @@ routeur(){
 			  exit-address-family
 		exit
 	router ospf	
+		network 0.0.0.0/0 area 0
 	 exit
 exit
 

@@ -1,4 +1,4 @@
-#!/bin/ash
+#!/bin/bash
 
 host(){
     id=$1
@@ -8,11 +8,10 @@ host(){
     fi
     echo "Configuring host with ID: $id"
 	if [ "$id" -eq 1 ]; then
-    	ip addr add 20.1.1.$id/24 dev eth0
+    	ip addr add 20.1.1.$id/24 dev eth1
 	else
-		ip addr add 20.1.1.$id/24 dev eth1
+		ip addr add 20.1.1.$id/24 dev eth0
 	fi
-
 }
 
 host $1
