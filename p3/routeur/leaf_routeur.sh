@@ -25,7 +25,7 @@ routeur(){
     brctl addbr br0
     ip addr add 10.1.1.$id/24 dev eth$router_eth
     echo "ip link add name vxlan10 type vxlan id 10 remote 10.1.1.$((3-$id)) local 10.1.1.$id dev eth$router_eth dstport 4789"
-    ip link add name vxlan10 type vxlan id 10 group 239.1.1.1 dev eth0 dstport 4789
+    ip link add name vxlan10 type vxlan id 10 remote 10.1.1.$((3-$id)) local 10.1.1.$id dev eth$router_eth dstport 4789
     ip addr add 20.1.1.$id/24 dev vxlan10
     ifconfig br0 up
     ifconfig vxlan10 up
@@ -35,7 +35,6 @@ routeur(){
 	vtysh << EOF
 		configure terminal
 		no ipv6 forwarding
-		ip ospf log-adjacency-changes
 
 		interface eth$router_eth
 		 ip address 10.1.1.$(($id+1))/30
@@ -46,13 +45,13 @@ routeur(){
 		 ip ospf area 0
 		 exit
 		router bgp 1
+			neighbor BADASS peer-group
 			neighbor BADASS remote-as 1
 			neighbor BADASS update-source lo
 			address-family l2vpn evpn
 			advertise-all-vni
 			exit-address-family
 		exit
-		wr
 	exit
 EOF
 
