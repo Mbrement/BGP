@@ -43,11 +43,11 @@ routeur(){
 		 ip ospf area 0
 		 exit
 		router bgp 1
-			neighbor BADASS peer-group
-			neighbor BADASS remote-as 1
-			neighbor BADASS update-source lo
+			neighbor 1.1.1.1 remote-as 1
+			neighbor 1.1.1.1 update-source lo
 			address-family l2vpn evpn
-			advertise-all-vni
+				neighbor 1.1.1.1 activate
+				advertise-all-vni
 			exit-address-family
 		exit
 		router ospf

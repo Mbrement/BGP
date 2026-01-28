@@ -24,8 +24,8 @@ routeur(){
 		 bgp log-neighbor-changes
 			neighbor BADASS peer-group
 			neighbor BADASS remote-as 1
-			neighbor BADASS update-source lo0
- 			 bgp listen range 1.1.1.0/24 peer-group BADASS
+			neighbor BADASS update-source lo
+ 			 bgp listen range 1.1.1.0/29 peer-group BADASS
 			 address-family l2vpn evpn
 			  neighbor BADASS activate
 			  neighbor BADASS route-reflector-client
