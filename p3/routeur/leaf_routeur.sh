@@ -33,7 +33,6 @@ routeur(){
 	vtysh << EOF
 		configure terminal
 		no ipv6 forwarding
-
 		interface eth$router_eth
 		 ip address 10.1.1.$(($id+1))/30
 		 ip ospf area 0
@@ -43,15 +42,15 @@ routeur(){
 		 ip ospf area 0
 		 exit
 		router bgp 1
-			neighbor BADASS peer-group
-			neighbor BADASS remote-as 1
-			neighbor BADASS update-source lo
-			address-family l2vpn evpn
-			advertise-all-vni
-			exit-address-family
-		exit
+		 neighbor BADASS peer-group
+		 neighbor BADASS remote-as 1
+		 neighbor BADASS update-source lo
+		 address-family l2vpn evpn
+		 advertise-all-vni
+		 exit-address-family
+		 exit
 		router ospf
-		exit
+		 exit
 	exit
 EOF
 

@@ -29,7 +29,7 @@ routeur(){
 			 address-family l2vpn evpn
 			  neighbor BADASS activate
 			  neighbor BADASS route-reflector-client
-			  exit-address-family
+			 exit-address-family
 		exit
 		router ospf
 			network 0.0.0.0/0 area 0
