@@ -50,6 +50,8 @@ routeur(){
 			advertise-all-vni
 			exit-address-family
 		exit
+		router ospf
+		exit
 	exit
 EOF
 
