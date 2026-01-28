@@ -53,7 +53,6 @@ routeur(){
 		 exit
 	exit
 EOF
- git s
 }
 
 routeur $1
