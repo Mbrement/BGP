@@ -17,7 +17,7 @@ routeur(){
 		 ip address 10.1.1.9/30
 		 exit
 		! loopback for iBGP sessions, 1.1.1.1 for sandbox purposes
-		interface lo0
+		interface lo
 		 ip address 1.1.1.1/32
 		 exit
 		router bgp 1
@@ -41,4 +41,7 @@ EOF
 }
 
 # bgp cluster-id A.B.C.D
-# bgp no-rib	
+# bgp no-rib
+
+
+routeur $1

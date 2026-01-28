@@ -23,10 +23,8 @@ routeur(){
     fi
 	echo "Configuring routeur with ID: $id"
     brctl addbr br0
-    ip addr add 10.1.1.$id/24 dev eth$router_eth
     echo "ip link add name vxlan10 type vxlan id 10 remote 10.1.1.$((3-$id)) local 10.1.1.$id dev eth$router_eth dstport 4789"
-    ip link add name vxlan10 type vxlan id 10 remote 10.1.1.$((3-$id)) local 10.1.1.$id dev eth$router_eth dstport 4789
-    ip addr add 20.1.1.$id/24 dev vxlan10
+    ip link add name vxlan10 type vxlan id 10 dstport 4789
     ifconfig br0 up
     ifconfig vxlan10 up
     brctl addif br0 eth$host_eth
